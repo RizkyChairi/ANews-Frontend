@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/categoryProvider.dart';
-import '../providers/postProvider.dart';
+import '../providers/category_provider.dart';
+import '../providers/post_provider.dart';
 
 class CategoryFilter extends StatelessWidget {
   const CategoryFilter({super.key});

@@ -1,5 +1,5 @@
-import 'userModel.dart';
-import 'categoryModel.dart';
+import 'user_model.dart';
+import 'category_model.dart';
 
 class PostModel {
   final int id;

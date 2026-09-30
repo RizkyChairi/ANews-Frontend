@@ -2,9 +2,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';  
-import '../config/apiConfig.dart';
-import '../models/postModel.dart';
-import 'authService.dart';
+import '../config/api_config.dart';
+import '../models/post_model.dart';
+import 'auth_service.dart';
 
 class PostService {
   final AuthService _authService = AuthService();

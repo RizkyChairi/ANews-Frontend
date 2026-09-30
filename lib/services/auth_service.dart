@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:async';  
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import '../config/apiConfig.dart';
-import '../models/userModel.dart';
+import '../config/api_config.dart';
+import '../models/user_model.dart';
 
 class AuthService {
   static const String _tokenKey = 'auth_token';

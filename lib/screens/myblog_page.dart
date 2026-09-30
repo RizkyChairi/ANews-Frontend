@@ -1,14 +1,11 @@
-// lib/screens/myBlogPage.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
-import '../providers/authProvider.dart';
-import '../providers/postProvider.dart';
-import '../widgets/postCard.dart';
-import 'loginPage.dart';
-import 'editPostPage.dart';
-import 'postdetailPage.dart';
-import 'profilePage.dart';
+import '../providers/auth_provider.dart';
+import '../providers/post_provider.dart';
+import '../widgets/post_card.dart';
+import 'login_page.dart';
+import 'editpost_page.dart';
 
 class MyBlogPage extends StatefulWidget {
   const MyBlogPage({super.key});
@@ -75,7 +72,6 @@ class _MyBlogPageState extends State<MyBlogPage> {
       ),
     );
 
-    // Reload setelah edit
     if (result == true) {
       _loadUserPosts();
     }
@@ -151,7 +147,7 @@ class _MyBlogPageState extends State<MyBlogPage> {
                   endActionPane: ActionPane(
                     motion: const DrawerMotion(),
                     children: [
-                      // TOMBOL EDIT (biru)
+                  
                       SlidableAction(
                         onPressed: (_) => _editPost(post),
                         backgroundColor: Colors.blue,
@@ -159,7 +155,7 @@ class _MyBlogPageState extends State<MyBlogPage> {
                         icon: Icons.edit,
                         label: 'Edit',
                       ),
-                      // TOMBOL DELETE (merah)
+                     
                       SlidableAction(
                         onPressed: (_) => _deletePost(post.id),
                         backgroundColor: Colors.red,
@@ -170,7 +166,6 @@ class _MyBlogPageState extends State<MyBlogPage> {
                     ],
                   ),
                   child: GestureDetector(
-                    // ✅ TAP POST = langsung buka Edit
                     onTap: () => _editPost(post),
                     child: PostCard(
                       post: post,

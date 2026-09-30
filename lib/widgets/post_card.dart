@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import '../models/postModel.dart';
+import '../models/post_model.dart';
 
 class PostCard extends StatelessWidget {
   final PostModel post;
   final VoidCallback? onTap;
   final bool showActions;
+  final bool isGrid;
 
   const PostCard({
     super.key,
     required this.post,
     this.onTap,
     this.showActions = true,
+    this.isGrid = false,
   });
 
   String _formatDate(DateTime? date) {
@@ -34,6 +36,11 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (isGrid) return _buildGridCard(context);
+    return _buildListCard(context);
+  }
+
+  Widget _buildListCard(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
@@ -55,7 +62,6 @@ class PostCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              
               if (post.imageUrl != null && post.imageUrl!.isNotEmpty)
                 ClipRRect(
                   borderRadius: const BorderRadius.vertical(
@@ -86,7 +92,6 @@ class PostCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Category Tag
                     if (post.category != null)
                       Container(
                         padding: const EdgeInsets.symmetric(
@@ -108,11 +113,10 @@ class PostCard extends StatelessWidget {
                       ),
                     const SizedBox(height: 12),
 
-                    // Title
                     Text(
                       post.title,
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                         height: 1.3,
                       ),
@@ -121,7 +125,6 @@ class PostCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
 
-                    // Content Preview
                     Text(
                       post.content,
                       style: TextStyle(
@@ -134,7 +137,6 @@ class PostCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
 
-                    // Author & Date
                     Row(
                       children: [
                         CircleAvatar(
@@ -180,6 +182,124 @@ class PostCard extends StatelessWidget {
                       ],
                     ),
                   ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+  Widget _buildGridCard(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+  
+              Expanded(
+                flex: 2,
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(16),
+                  ),
+                  child: (post.imageUrl != null && post.imageUrl!.isNotEmpty)
+                      ? CachedNetworkImage(
+                          imageUrl: post.imageUrl!,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                          placeholder: (context, url) => Container(
+                            color: Colors.grey.shade200,
+                            child: const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          ),
+                          errorWidget: (context, url, error) => Container(
+                            color: Colors.grey.shade200,
+                            child: const Icon(Icons.error_outline, size: 40),
+                          ),
+                        )
+                      : Container(
+                          color: Colors.grey.shade200,
+                          child: const Icon(
+                            Icons.image_outlined,
+                            size: 40,
+                            color: Colors.grey,
+                          ),
+                        ),
+                ),
+              ),
+
+              Expanded(
+                flex: 3,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 6,
+                    vertical: 4,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      if (post.category != null)
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 3,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.green.shade50,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(
+                            post.category!.name,
+                            style: const TextStyle(
+                              color: Colors.green,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      const SizedBox(height: 8),
+
+                      Text(
+                        post.title,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          height: 1.3,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 6),
+
+                      Text(
+                        _formatDate(post.createdAt),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: Colors.grey.shade500,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

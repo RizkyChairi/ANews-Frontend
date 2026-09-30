@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../config/apiConfig.dart';
-import '../models/categoryModel.dart';
-import 'authService.dart';
+import '../config/api_config.dart';
+import '../models/category_model.dart';
+import 'auth_service.dart';
 
 class CategoryService {
   final AuthService _authService = AuthService();

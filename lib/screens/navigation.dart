@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'homePage.dart';
-import 'createPage.dart';
-import 'myblogPage.dart';
-import 'profilePage.dart';
+import 'home_page.dart';
+import 'create_page.dart';
+import 'myblog_page.dart';
+import 'profile_page.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});

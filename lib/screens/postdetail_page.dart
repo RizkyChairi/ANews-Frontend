@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import '../models/postModel.dart';
+import '../models/post_model.dart';
 
 class PostDetailPage extends StatelessWidget {
   final PostModel post;
@@ -94,7 +94,7 @@ class PostDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
 
-                  // Author Info
+                  //  Info pembuat
                   Row(
                     children: [
                       CircleAvatar(

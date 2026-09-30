@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'providers/authProvider.dart';
-import 'providers/postProvider.dart';
-import 'providers/categoryProvider.dart';
+import 'providers/auth_provider.dart';
+import 'providers/post_provider.dart';
+import 'providers/category_provider.dart';
 import 'screens/splashscreen.dart';
 
 void main() {

@@ -2,10 +2,10 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import '../providers/authProvider.dart';
-import '../providers/postProvider.dart';
-import '../providers/categoryProvider.dart';
-import 'loginPage.dart';
+import '../providers/auth_Provider.dart';
+import '../providers/post_provider.dart';
+import '../providers/category_provider.dart';
+import 'login_page.dart';
 
 class CreatePage extends StatefulWidget {
   const CreatePage({super.key});

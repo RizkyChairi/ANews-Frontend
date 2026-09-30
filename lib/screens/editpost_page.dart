@@ -2,10 +2,9 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';    
 import 'package:provider/provider.dart';
-import '../models/postModel.dart';
-import '../providers/postProvider.dart';
-import '../providers/categoryProvider.dart';
-import '../widgets/postCard.dart';
+import '../models/post_model.dart';
+import '../providers/post_provider.dart';
+import '../providers/category_provider.dart';
 
 class EditPostPage extends StatefulWidget {
   final PostModel post;

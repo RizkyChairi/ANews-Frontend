@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/authProvider.dart';
-import 'myblogPage.dart';
-import 'createPage.dart';
-import 'loginPage.dart';
+import '../providers/auth_provider.dart';
+import 'myblog_page.dart';
+import 'create_page.dart';
+import 'login_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -97,7 +97,6 @@ class ProfilePage extends StatelessWidget {
             ),
             const SizedBox(height: 24),
 
-            // ===== MENU ITEMS =====
             _buildMenuItem(
               icon: Icons.article_outlined,
               title: 'My Posts',
@@ -130,7 +129,6 @@ class ProfilePage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
-            // ===== LOGOUT =====
             SizedBox(
               width: double.infinity,
               height: 50,

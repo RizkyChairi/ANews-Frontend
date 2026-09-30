@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import '../models/postModel.dart';
-import '../screens/postdetailPage.dart';
+import '../models/post_model.dart';
+import '../screens/postdetail_page.dart';
 
 class BannerSlider extends StatefulWidget {
   final List<PostModel> posts;
@@ -57,7 +57,7 @@ class _BannerSliderState extends State<BannerSlider> {
           activeIndex: _currentIndex,
           count: banners.length,
           effect: const ExpandingDotsEffect(
-            activeDotColor: Color(0xFF2E7D32),   // ← Forest Green
+            activeDotColor: Color(0xFF2E7D32), 
             dotColor: Colors.grey,
             dotHeight: 8,
             dotWidth: 8,
@@ -157,7 +157,7 @@ class _BannerSliderState extends State<BannerSlider> {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFD32F2F),   // ← Red
+                    color: const Color(0xFFD32F2F),  
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: const Text(
@@ -171,7 +171,6 @@ class _BannerSliderState extends State<BannerSlider> {
                   ),
                 ),
               ),
-//category
               if (post.category != null)
                 Positioned(
                   top: 12,
@@ -182,7 +181,7 @@ class _BannerSliderState extends State<BannerSlider> {
                       vertical: 4,
                     ),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF2E7D32),   // ← Green
+                      color: const Color(0xFF2E7D32),   
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -217,7 +216,7 @@ class _BannerSliderState extends State<BannerSlider> {
                     ),
                     const SizedBox(height: 6),
 
-                    // Author + Date
+                
                     Row(
                       children: [
                         CircleAvatar(

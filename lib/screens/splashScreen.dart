@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/authProvider.dart';
-import 'mainNavigation.dart';
+import '../providers/auth_provider.dart';
+import 'navigation.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -111,6 +111,7 @@ class _SplashScreenState extends State<SplashScreen>
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.white,
+                        fontFamily: 'Cinzel',
                       ),
                     ),
                   ],

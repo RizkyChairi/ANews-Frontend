@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/postProvider.dart';
-import '../widgets/postCard.dart';
-import '../models/postModel.dart';
-import 'postdetailPage.dart';
+import '../providers/post_provider.dart';
+import '../widgets/post_card.dart';
+import '../models/post_model.dart';
+import 'postdetail_page.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
